@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,7 +12,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'EmployeesController@index')->name('home');
+Route::get('employees/exportcsv', 'EmployeesController@exportCSV')->name('employees.exportcsv');
+Route::get('employees/exportexcel', 'EmployeesController@exportExcel')->name('employees.exportexcel');
+Route::post('employees/exportbyagecsv', 'EmployeesController@exportByAgeCSV')->name('employees.exportbyagecsv');
